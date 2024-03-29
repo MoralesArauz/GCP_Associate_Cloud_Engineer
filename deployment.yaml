@@ -6,11 +6,13 @@ spec:
   selector:
     matchLabels:
       app: nginx
+      homework: "kubernetes-advance"
   replicas: 3 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
         app: nginx
+        homework: "kubernetes-advance"
     spec:
       containers:
       - name: nginx
