@@ -1,23 +1,22 @@
-apiVersion: "apps/v1"
-kind: "Deployment"
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: "nginx-1"
-  namespace: "default"
-  labels:
-    app: "nginx-1"
-    homework: "kubernetes-advance"
+  name: nginx-deployment
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: "nginx-1"
-      homework: "kubernetes-advance"
+      app: nginx
+      homework: kubernetes-advance
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: "nginx-1"
-        homework: "kubernetes-advance"
+        app: nginx
+        homework: kubernetes-advance
     spec:
       containers:
-      - name: "nginx-1"
-        image: "nginx:latest"
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
